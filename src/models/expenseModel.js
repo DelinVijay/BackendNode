@@ -4,15 +4,17 @@ const Schema=require('mongoose').Schema;
 
 
 const expenseSchema=new Schema(
-   [ {
-    "item":String,
-    "price":Number,
-    "date":Date
-    },
-    {
+   [ 
+     {
       "income":Number,
       "date":Date
-     }
+     },
+     {
+      "item":String,
+      "price":Number,
+      "date":Date
+    },
+
 ]
 );
 
