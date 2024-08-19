@@ -10,8 +10,8 @@ const expenseSchema=new Schema(
     "date":Date
     },
     {
-        "income":Number,
-        "date":Date
+      "income":Number,
+      "date":Date
      }
 ]
 );
