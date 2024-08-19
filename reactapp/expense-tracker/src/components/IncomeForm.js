@@ -11,12 +11,12 @@ function IncomeForm({ setIncome }) {
     const income = { amount: parseFloat(amount), date };
 
     try {
-      await axios.post('https://backend-node-2-beryl.vercel.app/api/v1/users/createIncome', income); // Ensure this matches your backend route
+      await axios.post('https://backend-node-beryl.vercel.app/api/v1/users/createIncome', income); // Ensure this matches your backend route
       setIncome((prevIncome) => [...prevIncome, income]);
       setAmount('');
       setDate('');
     } catch (error) {
-      res.status(500).json({"data":"","msg":"","err":err.message})
+      console.error(error);
     }
   };
 

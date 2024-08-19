@@ -12,13 +12,13 @@ function ExpenseForm({ addExpense }) {
     const expense = { item, price: parseFloat(price), date };
 
     try {
-      await axios.post('https://backend-node-2-beryl.vercel.app/api/v1/users/createExpense', expense); // Make sure this matches your backend route
+      await axios.post('https://backend-node-beryl.vercel.app/api/v1/users/createExpense', expense); // Make sure this matches your backend route
       addExpense(expense); // Update local state
       setItem('');
       setPrice('');
       setDate('');
     } catch (error) {
-      res.status(500).json({"data":"","msg":"","err":err.message});
+      console.error(error);
     }
   };
 
