@@ -49,7 +49,7 @@ function Summary() {
   // Handle search button click
   const handleSearch = async () => {
     try {
-      const response = await axios.get('/api/v1/users/readExpense');
+      const response = await axios.get(`https://backend-node-beryl.vercel.app//api/v1/users/readSpecificExpense/${searchQuery}`);
       const expenses = response.data.data || [];
       const filtered = expenses.filter(expense =>
         expense.item.toLowerCase().includes(searchQuery.toLowerCase())
@@ -66,12 +66,12 @@ function Summary() {
     const updatedExpense = { item: updateItem, price: parseFloat(updatePrice) };
 
     try {
-      await axios.put(`/api/v1/users/updateExpense/${selectedExpenseId}`, updatedExpense);
+      await axios.put(`https://backend-node-beryl.vercel.app/api/v1/users/updateExpense/${selectedExpenseId}`, updatedExpense);
       setUpdateItem('');
       setUpdatePrice('');
       setSelectedExpenseId(null);
       // Refresh expenses list
-      const response = await axios.get('/api/v1/users/readExpense');
+      const response = await axios.get('https://backend-node-beryl.vercel.app/api/v1/users/readExpense');
       setFilteredExpenses(response.data.data || []);
     } catch (error) {
       console.error('Error updating expense:', error);
