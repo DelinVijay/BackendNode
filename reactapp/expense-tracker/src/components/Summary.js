@@ -49,7 +49,7 @@ function Summary() {
   // Handle search button click
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`https://backend-node-beryl.vercel.app//api/v1/users/readSpecificExpense/${searchQuery}`);
+      const response = await axios.get(`https://backend-node-beryl.vercel.app//api/v1/users/readExpense`);
       const expenses = response.data.data || [];
       const filtered = expenses.filter(expense =>
         expense.item.toLowerCase().includes(searchQuery.toLowerCase())
