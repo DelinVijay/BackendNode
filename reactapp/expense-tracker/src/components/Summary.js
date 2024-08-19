@@ -15,7 +15,7 @@ function Summary() {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const response = await axios.get('https://backend-node-beryl.vercel.app/api/v1/users/readExpense');
+        const response = await axios.get('/https://backend-node-beryl.vercel.app/api/v1/users/readExpense');
         const expenseData = response.data.data || [];
         setTotalExpenses(expenseData.reduce((total, entry) => total + (entry.price || 0), 0));
         setFilteredExpenses(expenseData); // Initialize filtered expenses with all expenses
@@ -49,7 +49,7 @@ function Summary() {
   // Handle search button click
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`https://backend-node-beryl.vercel.app/api/v1/users/readSpecificExpense/${searchQuery}`);
+      const response = await axios.get(`https://backend-node-beryl.vercel.app//api/v1/users/readSpecificExpense/${searchQuery}`);
       const expenses = response.data.data || [];
       const filtered = expenses.filter(expense =>
         expense.item.toLowerCase().includes(searchQuery.toLowerCase())
