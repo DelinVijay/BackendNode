@@ -27,7 +27,7 @@ function IncomeForm({ setIncome }) {
         <input
           className="input-box"
           type="number"
-          value={amount}
+          value={income}
           onChange={(e) => setAmount(e.target.value)}
           required
         />
