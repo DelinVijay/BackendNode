@@ -7,6 +7,7 @@ function Summary() {
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredExpenses, setFilteredExpenses] = useState([]);
+  const [allExpenses, setAllExpenses] = useState([]); // Store all expenses separately
   const [noResultsMessage, setNoResultsMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,7 +23,7 @@ function Summary() {
         const expensesResponse = await axios.get('https://backend-node-beryl.vercel.app/api/v1/users/readExpense');
         const expenseData = expensesResponse.data.data || [];
         setTotalExpenses(expenseData.reduce((total, entry) => total + (entry.price || 0), 0));
-        setFilteredExpenses(expenseData); // Initialize filtered expenses with all expenses
+        setAllExpenses(expenseData); // Store all expenses for future filtering
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -45,16 +46,14 @@ function Summary() {
   const handleSearch = async () => {
     if (!searchQuery.trim()) {
       setNoResultsMessage('Please enter a search query.');
+      setFilteredExpenses([]); // Clear results if no search query
       return;
     }
-
+  
     try {
       setIsLoading(true);
       const response = await axios.get(`https://backend-node-beryl.vercel.app/api/v1/users/readSpecificExpense/?item=${searchQuery}`);
-      const expenses = response.data.data || [];
-      const filtered = expenses.filter(expense =>
-        expense.item.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      const filtered = response.data.data || []; // Ensure the response data is handled correctly
       setFilteredExpenses(filtered);
       setNoResultsMessage(filtered.length === 0 ? 'No results found.' : '');
     } catch (error) {
@@ -64,6 +63,7 @@ function Summary() {
       setIsLoading(false);
     }
   };
+  
 
   // Calculate balance
   const balance = totalIncome - totalExpenses;
