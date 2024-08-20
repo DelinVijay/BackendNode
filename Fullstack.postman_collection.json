@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "87c305ec-c297-4403-b54a-eec7d85461b0",
+		"name": "Fullstack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37736669"
+	},
+	"item": [
+		{
+			"name": "Read Expense",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/v1/users/readExpense",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"readExpense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Specific Expenses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/users/readSpecificExpense/?item=Furniture",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"readSpecificExpense",
+						""
+					],
+					"query": [
+						{
+							"key": "item",
+							"value": "Furniture"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Expense",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "item",
+							"value": "Groceries",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/users/createExpense/?item=Groceries&price=2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"createExpense",
+						""
+					],
+					"query": [
+						{
+							"key": "item",
+							"value": "Groceries"
+						},
+						{
+							"key": "price",
+							"value": "2000"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Expense",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"66c2e2fed5a80c0c62964f4a\",\n    \"item\":\"Groceries\",\n    \"price\":2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/users/updateExpense",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"updateExpense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Expense",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/v1/users/deleteExpense/66c2dfe5074d640e2741bbb7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"deleteExpense",
+						"66c2dfe5074d640e2741bbb7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Income",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"income\":2000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/users/readIncome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"readIncome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Income",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"income\":5000,\n    \"date\":\"2024-08-24\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/users/createIncome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"createIncome"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
