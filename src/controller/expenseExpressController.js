@@ -15,7 +15,7 @@ const readExpense=async (req,res)=>{
 }
 const readIncome=async (req,res)=>{
     try{
-    let income = await expenseModel.find();
+    let income = await incomeModel.find();
     (income.length>0)?
         res.status(200).json({"data":income,"message":"","err":""})
     :
@@ -54,7 +54,7 @@ const createIncome=async(req,res)=>{
     try{
         let data = req.body;
         console.log(data);
-        let income = new expenseModel(data);
+        let income = new incomeModel(data);
         await income.save();
         res.status(201).json({"data":"","message":"added success","err":""});
     }
