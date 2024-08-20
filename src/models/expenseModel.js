@@ -6,7 +6,6 @@ const expenseSchema=new Schema(
     "item":String,
     "price":Number,
     "date":Date,
-     "income":Number
      }
 ]
 );
