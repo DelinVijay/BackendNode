@@ -1,6 +1,6 @@
 
 const expenseModel=require('../models/expenseModel')
-const expenseModel=require('../models/incomeModel')
+const incomeModel=require('../models/incomeModel')
 
 const readExpense=async (req,res)=>{
     try{
