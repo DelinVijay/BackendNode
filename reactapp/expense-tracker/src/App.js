@@ -3,12 +3,10 @@ import ExpenseForm from './components/ExpenseForm';
 import IncomeForm from './components/IncomeForm';
 import Summary from './components/Summary';
 import './styles.css';
-
 function App() {
   const [income, setIncome] = useState([]); // Initialize as an empty array
   const [expenses, setExpenses] = useState([]);
   const [expenseList, setExpenseList] = useState([]);
-
   const addExpense = (expense) => {
     setExpenses((prevExpenses) => [...prevExpenses, expense.price]);
     setExpenseList((prevList) => [...prevList, expense]);
@@ -17,7 +15,6 @@ function App() {
   const addIncome = (income) => {
     setIncome((prevIncome) => [...prevIncome, income]);
   };
-
   return (
     <div className="app">
       <div className="main-content">
@@ -28,5 +25,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
