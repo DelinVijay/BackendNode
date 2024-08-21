@@ -1,6 +1,5 @@
 const mongoose=require('mongoose');
 const Schema=require('mongoose').Schema;
-
 const expenseSchema=new Schema(
    [ {
     "item":String,
