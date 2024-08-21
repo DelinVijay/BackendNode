@@ -6,7 +6,6 @@ function Summary() {
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredExpenses, setFilteredExpenses] = useState([]);
-
   const [noResultsMessage, setNoResultsMessage] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -16,7 +15,6 @@ function Summary() {
         const incomeResponse = await axios.get('https://backend-node-beryl.vercel.app/api/v1/users/readIncome');
         const incomeData = incomeResponse.data.data || [];
         setTotalIncome(incomeData.reduce((total, entry) => total + (entry.income|| 0), 0));
-
         const expensesResponse = await axios.get('https://backend-node-beryl.vercel.app/api/v1/users/readExpense');
         const expenseData = expensesResponse.data.data || [];
         setTotalExpenses(expenseData.reduce((total, entry) => total + (entry.price || 0), 0));
@@ -63,7 +61,6 @@ function Summary() {
       try {
         setIsLoading(true);
         await axios.delete('https://backend-node-beryl.vercel.app/api/v1/users/deleteExpense'); // Adjust the endpoint as necessary
-        // Clear state after successful deletion
         setTotalExpenses(0);
         setFilteredExpenses([]);
         setNoResultsMessage('All expenses have been cleared.');
@@ -76,13 +73,11 @@ function Summary() {
     }
   };
   const handleClear = async () => {
-    if (window.confirm('Are you sure you want to clear all expenses?')) {
+    if (window.confirm('Are you sure you want to clear all income?')) {
       try {
         setIsLoading(true);
         await axios.delete('https://backend-node-beryl.vercel.app/api/v1/users/deleteIncome');
-        // Clear state after successful deletion
-        setTotalExpenses(0);
-        setFilteredExpenses([]);
+        setTotalIncome(0);
         setNoResultsMessage('All expenses have been cleared.');
       } catch (error) {
         console.error('Error clearing all expenses:', error);
