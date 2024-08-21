@@ -8,7 +8,5 @@ const incomeSchema=new Schema(
      }
 ]
 );
-
 const incomeModel=mongoose.model("incomes",incomeSchema);
-
 module.exports=incomeModel;
