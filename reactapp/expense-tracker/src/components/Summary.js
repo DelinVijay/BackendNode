@@ -78,10 +78,10 @@ function Summary() {
         setIsLoading(true);
         await axios.delete('https://backend-node-beryl.vercel.app/api/v1/users/deleteIncome');
         setTotalIncome(0);
-        setNoResultsMessage('All expenses have been cleared.');
+        setNoResultsMessage('Income have been cleared.');
       } catch (error) {
-        console.error('Error clearing all expenses:', error);
-        setNoResultsMessage('Error clearing expenses.');
+        console.error('Error clearing income:', error);
+        setNoResultsMessage('Error clearing income.');
       } finally {
         setIsLoading(false);
       }
