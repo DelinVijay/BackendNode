@@ -9,7 +9,5 @@ const expenseSchema=new Schema(
      }
 ]
 );
-
 const expenseModel=mongoose.model("expenses",expenseSchema);
-
 module.exports=expenseModel;
